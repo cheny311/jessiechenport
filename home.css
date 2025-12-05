@@ -1,0 +1,149 @@
+/* ------------------------------
+   GLOBAL
+------------------------------ */
+
+body {
+  margin: 0;
+  font-family: "Kirang Haerang", system-ui;
+  background: linear-gradient(135deg, #dfffec, #e0f9ff, #f0fff3);
+  background-size: 300% 300%;
+  animation: bgShift 10s ease infinite;
+  color: #2a3a4a;
+}
+
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  background: #6ec6ff;
+  color: white;
+  font-family: "Barrio", system-ui;
+  padding: 40px 20px 28px;
+  text-align: center;
+  border-bottom: 5px solid #40a6e6;
+}
+
+.hero h1 {
+  font-family: "Barrio", system-ui;
+  font-weight: 400;
+  margin: 0 0 12px;
+  font-size: clamp(2.8rem, 10vw, 5.2rem);
+  letter-spacing: 2px;
+}
+
+nav a {
+  font-family: "Barrio", system-ui;
+  color: white;
+  margin: 0 10px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+/* ------------------------------
+   MAIN & CARD
+------------------------------ */
+
+main.grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  width: 90vw;
+  max-width: 1100px;
+  justify-items: center;
+  margin: 0 auto 40px;
+}
+
+.card {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 200;
+  background: white;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 10px rgba(255, 0, 195, 0.72);
+  width: 100%;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0, 90, 150, 0.25);
+}
+
+.card a {
+  font-family: "Tomorrow", sans-serif;
+  color: #31a4f6;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   SQUARE GRID
+------------------------------ */
+
+.square-wrapper {
+  background: white;
+}
+
+.square-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);   /* 5 列 */
+  grid-template-rows: repeat(10, 1fr);     /* 10 行 */
+  gap: 16px;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 单个正方形 */
+.square {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 14px rgba(255, 0, 195, 0.28);
+  aspect-ratio: 1 / 1;
+  animation: float 4s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.2s);   /* 关键：每个有不同延迟 */
+  transition: transform 0.2s ease;
+}
+
+/* hover 效果 */
+.square:hover {
+  transform: scale(1.08) rotate(1deg);
+}
+
+/* 漂浮动画 */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(2px); }
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 200;
+  padding: 12px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+}
