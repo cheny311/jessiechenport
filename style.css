@@ -46,6 +46,8 @@ body {
     text-align: center;
     border-bottom: 5px solid #40a6e6;
     /* Slightly darker blue stripe */
+    position: relative;
+    z-index: 20000;
 }
 
 .hero h1 {
@@ -67,6 +69,8 @@ nav a {
     text-decoration: underline;
     /* No underline by default */
     font-weight: bold;
+    position: relative;
+    z-index: 10000;
 }
 
 /* Underline when hovering over menu links */
