@@ -1,57 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Assignment Title</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment Title</title>
 
-  <!-- 你的 portfolio 总样式（保持原来的） -->
-  <link rel="stylesheet" href="../../style.css" />
+    <!-- portfolio global styles -->
+    <link rel="stylesheet" href="../../style.css" />
 
-  <!-- 如果你这个作业也需要你 scene 项目的 style.css（按钮/slider 那些），就加上这一行 -->
-  <link rel="stylesheet" href="./style.css" />
+    <!-- a7 local styles (buttons/sliders + fixes) -->
+    <link rel="stylesheet" href="./style.css" />
 
-  <!-- fonts（保持原来的） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- ✅ p5 + addons（用你原项目同款，避免版本差异） -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clmtrackr/1.1.2/clmtrackr.min.js"></script>
-</head>
+    <!-- p5 + addons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clmtrackr/1.1.2/clmtrackr.min.js"></script>
+  </head>
 
-<body>
-  <header class="hero">
-    <h1>Assignment Title: Autobiography Game</h1>
-    <nav>
-      <a href="../../home.html">Back To Assignment List</a>
-      <a href="../../about.html">About Me</a>
-    </nav>
-  </header>
+  <body>
+    <header class="hero">
+      <h1>Assignment Title: Autobiography Game</h1>
 
-  <main class="grid">
-    <section class="card">
-      <h2>Project Description</h2>
-      <p>Put your project reflection here.</p>
-    </section>
+      <nav>
+        <a class="nav-link" href="../../home.html">Back To Assignment List</a>
+        <a class="nav-link" href="../../about.html">About Me</a>
+      </nav>
+    </header>
 
-    <section class="card">
-      <h2>This is where your sketch will go.</h2>
-      <div id="sketch-container"></div>
-    </section>
-  </main>
+    <main class="grid">
+      <section class="card">
+        <h2>Project Description</h2>
+        <p>Put your project reflection here.</p>
+      </section>
 
-  <footer>
-    <p>© 2025 My Portfolio</p>
-  </footer>
+      <section class="card">
+        <h2>This is where your sketch will go.</h2>
+        <div id="sketch-container"></div>
+      </section>
+    </main>
 
-  <script src="./scene0.js"></script>
-<script src="./scene1.js"></script>
-<script src="./scene2.js"></script>
-<script src="./scene3.js"></script>
-<script src="./scene4.js"></script>
-<script src="./7.js"></script>
+    <footer>
+      <p>© 2025 My Portfolio</p>
+    </footer>
 
-</body>
+    <!-- scenes -->
+    <script src="./scene0.js"></script>
+    <script src="./scene1.js"></script>
+    <script src="./scene2.js"></script>
+    <script src="./scene3.js"></script>
+    <script src="./scene4.js"></script>
+    <script src="./7.js"></script>
+
+    <!-- ✅ 终极导航修复脚本 -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        console.log("🔧 Navigation fix loading...");
+        
+        setTimeout(() => {
+          const links = document.querySelectorAll("header.hero nav a");
+          console.log("📍 Found links:", links.length);
+          
+          links.forEach((link, index) => {
+            // 强制样式
+            link.style.cssText = `
+              position: relative !important;
+              z-index: 9999999999 !important;
+              pointer-events: auto !important;
+              cursor: pointer !important;
+              display: inline-block !important;
+            `;
+            
+            // 使用 mousedown 事件（比 click 更早触发，更难被拦截）
+            link.addEventListener("mousedown", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              
+              const href = link.getAttribute("href");
+              console.log("🚀 Navigating to:", href);
+              window.location.href = href;
+            }, true);
+            
+            // 备用：click 事件
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              
+              const href = link.getAttribute("href");
+              console.log("🚀 Click backup triggered:", href);
+              window.location.href = href;
+            }, true);
+            
+            console.log(`✅ Link ${index} fixed:`, link.textContent.trim());
+          });
+          
+          // 全局备用拦截器
+          document.addEventListener("click", (e) => {
+            const target = e.target.closest("header.hero nav a");
+            if (target) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              
+              const href = target.getAttribute("href");
+              console.log("🎯 Global interceptor triggered:", href);
+              window.location.href = href;
+            }
+          }, true);
+          
+          console.log("✅ Navigation fix complete!");
+        }, 100);
+      });
+    </script>
+  </body>
 </html>

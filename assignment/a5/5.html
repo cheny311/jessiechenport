@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Assignment Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 5: Optical Illusion</title>
 
     <!-- Base stylesheet -->
     <link rel="stylesheet" href="../../style.css" />
@@ -28,24 +29,30 @@
 
   <body>
     <header class="hero">
-      <h1>Assignment Title: Optical Illusion</h1>
+      <h1>Assignment 5: Optical Illusion</h1>
       <nav>
-        <a href="/home.html">Back To Assignment List</a>
-        <a href="about.html">About Me</a>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
       </nav>
     </header>
 
-    <main class="grid">
-      <!-- Project Description -->
-      <section class="card">
+    <main class="horizontal-layout">
+      <section class="description-card">
         <h2>Project Description</h2>
-        <p>
-          Put your project reflection here.
-        </p>
+        <div class="scrollable-content">
+          <p>Put your project reflection here.</p>
+          <p>This is an interactive optical illusion that uses face tracking technology.</p>
+          <p>
+            When your face is detected by the webcam, the text "Can you see me?" becomes scrambled and distorted with a blurry overlay effect.
+          </p>
+          <p>When no face is detected, the text appears clear and readable.</p>
+          <p>
+            <strong>How to use:</strong> Allow webcam access when prompted, then move your face in and out of the camera view to see the effect!
+          </p>
+        </div>
       </section>
 
-      <!-- p5 Sketch -->
-      <section class="card">
+      <section class="sketch-card">
         <h2>This is where your sketch will go.</h2>
         <div id="sketch-container"></div>
       </section>
@@ -54,6 +61,7 @@
     <footer>
       <p>© 2025 My Portfolio</p>
     </footer>
+    
     <script src="5.js"></script>
   </body>
 </html>

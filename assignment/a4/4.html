@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Assignment Title</title>
-   <link rel="stylesheet" href="../../style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
-  <!-- p5.js CDN -->
-       <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 4: Exquisite Corpse</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- p5.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clmtrackr/1.1.2/clmtrackr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Assignment 4: Exquisite Corpse</h1>
+      <nav>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
+      </nav>
+    </header>
 
-  <header class="hero">
-    <h1>Assignment Title:Exquisite Corpse</h1>
-    <nav>
-           <a href="/home.html">Back To Assignment List</a>
-      <a href="../about.html">About Me</a>
-    </nav>
-  </header>
+    <main class="horizontal-layout">
+      <section class="description-card">
+        <h2>Project Description</h2>
+        <div class="scrollable-content">
+          <p>Put your project reflection here.</p>
+          <p>
+            This is an interactive exquisite corpse character where the arms follow your mouse movement.
+          </p>
+          <p>
+            The character is composed of different body parts: head with red hair, body with colorful layers, feet, and movable arms.
+          </p>
+          <p>Move your mouse around to control the character's arms!</p>
+        </div>
+      </section>
 
-  <main class="grid">
+      <section class="sketch-card">
+        <h2>This is where your sketch will go.</h2>
+        <div id="sketch-container"></div>
+      </section>
+    </main>
 
-    <!-- Project Description -->
-    <section class="card">
-      <h2>Project Description</h2>
-      <p>
-       Put your project reflection here. 
-      </p>
-    </section>
+    <footer>
+      <p>© 2025 My Portfolio</p>
+    </footer>
 
-    <!-- p5 Sketch -->
-    <section class="card">
-      <h2>This is where your sketch will go.</h2>
-      <div id="sketch-container"></div>
-      <!-- <iframe src="https://editor.p5js.org/cheny311/full/ivKJ8HOPn"></iframe> -->
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2025 My Portfolio</p>
-  </footer>
-
-
-  <!-- p5.js SKETCH SCRIPT -->
-    <script src="4.js">
-  </script>
-
-</body>
+    <!-- p5.js SKETCH SCRIPT -->
+    <script src="4.js"></script>
+  </body>
 </html>

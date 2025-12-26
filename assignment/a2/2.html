@@ -2,37 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Assignment Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2: Face Generator</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap"
-      rel="stylesheet"
-    />
-
+    
     <!-- p5.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
   </head>
   <body>
     <header class="hero">
-      <h1>Assignment Title:Face Generator</h1>
+      <h1>Assignment 2: Face Generator</h1>
       <nav>
-          <a href="/home.html">Back To Assignment List</a>
-        <a href="../about.html">About Me</a>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
       </nav>
     </header>
 
-    <main class="grid">
-      <!-- Project Description -->
-      <section class="card">
+    <main class="horizontal-layout">
+      <!-- 左侧：Project Description - 1/3屏幕 -->
+      <section class="description-card">
         <h2>Project Description</h2>
-        <p>Put your project reflection here.</p>
+        <div class="scrollable-content">
+          <p>My idea was to make a face that shifts into crying as the mouse moves.
+I use lerp so the change feels smooth—eyebrows rotate, the mouth stretches, and tears grow longer as t increases.
+
+For the background, I added a mousePressed() that randomizes the color. it was fun to play around with the location of the pupil and eyebrow to create different facial expression. </p>
+        </div>
       </section>
 
-      <!-- p5 Sketch -->
-      <section class="card">
-        <h2>This is where your sketch will go.</h2>
+      <!-- 右侧：p5 Sketch - 2/3屏幕 -->
+      <section class="sketch-card">
+        <h2>Interactive Face Generator</h2>
         <div id="sketch-container"></div>
       </section>
     </main>
@@ -42,8 +49,6 @@
     </footer>
 
     <!-- p5.js SKETCH SCRIPT -->
-    <script src="2.js">
-      // Your p5.js code will go here.
-    </script>
+    <script src="2.js"></script>
   </body>
 </html>

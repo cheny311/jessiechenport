@@ -8,13 +8,14 @@ function radialGradient(x, y, w, h, cInner, cOuter, steps = 40) {
   }
 }
 
-
 function setup() {
-  createCanvas(400, 400);
+  // ✅ 创建 canvas 并放入 sketch-container
+  let cnv = createCanvas(400, 400);
+  cnv.parent('sketch-container');
 }
 
 function draw() {
-  background(255, 171, 224,2);
+  background(255, 171, 224, 2);
  
   const topY = height/4 - 11;
   push()
@@ -232,7 +233,7 @@ function draw() {
   endShape();
 
   pop()
-// 1) 原弧线的“对称”（向左）
+// 1) 原弧线的"对称"（向左）
   push();
   noFill();
   stroke(20);
@@ -260,7 +261,7 @@ function draw() {
   endShape();
   pop();
 
-// 3) “小一些”的对称（0.8 倍，向左）
+// 3) "小一些"的对称（0.8 倍，向左）
   push();
   noFill();
   stroke(20);
@@ -290,7 +291,7 @@ function draw() {
   endShape();
   pop();
 
-// 5) “大一些”的对称（1.2 倍，向左）
+// 5) "大一些"的对称（1.2 倍，向左）
   push();
   noFill();
   stroke(20);

@@ -1,11 +1,11 @@
 /**********************
  * GLOBAL STATE
  **********************/
-let currentScene = 0; // 想从哪一幕开始：0–4（如果你不确定就先改 0）
+let currentScene = 0;
 let scenes = [];
 
 /**********************
- * SHARED ASSETS (给 scenes 用)
+ * SHARED ASSETS
  **********************/
 let imgHer, imgMe, imgHold;
 let cursorImg;
@@ -35,7 +35,6 @@ function getContainerSize() {
 
   let w = Math.max(300, sketchContainerEl?.clientWidth || window.innerWidth);
 
-  // 如果 container 没有显式高度，就给个合理高度
   let h = Math.max(
     500,
     sketchContainerEl?.clientHeight || Math.min(900, window.innerHeight * 0.9)
@@ -81,7 +80,11 @@ function setup() {
   cnv = createCanvas(w, h);
   cnv.parent("sketch-container");
 
-  // 让键盘事件更稳定（点到画布后 WASD/快捷键更容易生效）
+  // ✅ 稳定叠层/点击区域
+  cnv.elt.style.position = "relative";
+  cnv.elt.style.zIndex = "0";
+
+  // 让键盘事件更稳定
   cnv.elt.tabIndex = 0;
   cnv.elt.style.outline = "none";
   cnv.elt.focus();
@@ -97,6 +100,22 @@ function setup() {
 
   // ✅ 关键：不要假设每个 scene 都有 start()
   scenes[currentScene]?.start?.();
+
+  // ✅ 把所有 p5 DOM（input/slider/button）强制放进 sketch-container
+  // 避免它们跑到 body 形成“透明遮挡层”
+  setTimeout(forceAllP5DomInsideContainer, 0);
+}
+
+function forceAllP5DomInsideContainer() {
+  const container = document.getElementById("sketch-container");
+  if (!container) return;
+
+  // p5 DOM element 常见 class：p5Canvas, p5_element
+  document.querySelectorAll(".p5_element").forEach((el) => {
+    if (el && container && el.parentElement !== container) {
+      container.appendChild(el);
+    }
+  });
 }
 
 /**********************
@@ -104,8 +123,6 @@ function setup() {
  **********************/
 function draw() {
   background(240);
-
-  // ✅ 关键：update/draw 也用安全调用
   scenes[currentScene]?.update?.();
   scenes[currentScene]?.draw?.();
 }
@@ -130,8 +147,8 @@ function switchScene(newScene) {
   currentScene = newScene;
   scenes[currentScene]?.start?.();
 
-  // 切场景后让 canvas 重新拿焦点（键盘更稳）
   if (cnv) cnv.elt.focus();
+  setTimeout(forceAllP5DomInsideContainer, 0);
 }
 
 /**********************
@@ -140,7 +157,6 @@ function switchScene(newScene) {
 function keyPressed() {
   scenes[currentScene]?.keyPressed?.();
 
-  // demo: press 1 to go next scene
   if (key === "1") {
     let next = currentScene + 1;
     if (next > 4) next = 0;

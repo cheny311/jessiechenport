@@ -10,6 +10,70 @@ body {
 body {
   font-family: "Kirang Haerang", system-ui;
   background: #ffffff;
+  position: relative !important;
+}
+
+/*************************************************
+ * HEADER (CLICK SAFE) - 强制修复
+ *************************************************/
+header.hero {
+  position: relative;
+  z-index: 9999999;
+  pointer-events: auto !important;
+}
+
+/* 移除伪元素的点击拦截 */
+header.hero::before,
+header.hero::after {
+  pointer-events: none !important;
+}
+
+/* h1 视觉保留，但不吃点击 */
+header.hero h1 {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+header.hero nav {
+  position: relative !important;
+  z-index: 999999999 !important;
+  pointer-events: auto !important;
+}
+
+header.hero nav a {
+  position: relative !important;
+  z-index: 9999999999 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+}
+
+/* 强制所有 header 内元素可点击 */
+header.hero *:not(h1) {
+  pointer-events: auto !important;
+}
+
+/* main 正常层级 */
+main.grid {
+  position: relative;
+  z-index: 0;
+}
+
+/*************************************************
+ * SKETCH CONTAINER (ISOLATION)
+ *************************************************/
+#sketch-container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+#sketch-container canvas {
+  position: relative;
+  z-index: 0;
 }
 
 /*************************************************
@@ -19,15 +83,7 @@ canvas {
   display: block;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  cursor: none; /* 你有自定义 cursor */
-}
-
-/*************************************************
- * SKETCH CONTAINER
- *************************************************/
-#sketch-container {
-  position: relative; /* ❗非常关键，p5 DOM UI 依附它 */
-  z-index: 1;
+  cursor: none;
 }
 
 /*************************************************
@@ -45,7 +101,6 @@ canvas {
 .section-title {
   position: absolute;
   z-index: 9999;
-
   color: #c06930;
   font-weight: bold;
   font-size: 14px;
@@ -62,8 +117,6 @@ canvas {
   font-family: "Kirang Haerang", system-ui;
   background: #f4a259;
   color: #3f2a1f;
-  opacity: 1;
-  
 
   border: none;
   border-radius: 8px;

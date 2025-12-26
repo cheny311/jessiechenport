@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Assignment Title</title>
- <link rel="stylesheet" href="../../style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
-  <!-- p5.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 6: Data Portrait</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap"
+      rel="stylesheet"
+    />
 
-  <header class="hero">
-    <h1>Assignment Title:Data Portrait</h1>
-    <nav>
-     <a href="/home.html">Back To Assignment List</a>
-      <a href="about.html">About Me</a>
-    </nav>
-  </header>
+    <!-- p5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Assignment 6: Data Portrait</h1>
+      <nav>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
+      </nav>
+    </header>
 
-  <main class="grid">
+    <main class="horizontal-layout">
+      <section class="description-card">
+        <h2>Project Description</h2>
+        <div class="scrollable-content">
+          <p>Put your project reflection here.</p>
+          <p>This is a data portrait that visualizes personal data through an animated character.</p>
+          <p>The character features:</p>
+          <ul>
+            <li>Red hair with individual strands</li>
+            <li>Animated mouth that displays data as a wave form</li>
+            <li>Interactive arms that follow your mouse movement</li>
+            <li>Data values: [90, 67, 90, 55, 82, 100, 80]</li>
+          </ul>
+          <p>
+            The mouth visualization shows the data points with a sinusoidal animation, creating a living, breathing data portrait.
+          </p>
+        </div>
+      </section>
 
-    <!-- Project Description -->
-    <section class="card">
-      <h2>Project Description</h2>
-      <p>
-       Put your project reflection here. 
-      </p>
-    </section>
+      <section class="sketch-card">
+        <h2>This is where your sketch will go.</h2>
+        <div id="sketch-container"></div>
+      </section>
+    </main>
 
-    <!-- p5 Sketch -->
-    <section class="card">
-      <h2>This is where your sketch will go.</h2>
-      <div id="sketch-container"></div>
-    </section>
+    <footer>
+      <p>© 2025 My Portfolio</p>
+    </footer>
 
-  </main>
-
-  <footer>
-    <p>© 2025 My Portfolio</p>
-  </footer>
-
-
-  <!-- p5.js SKETCH SCRIPT -->
-   <script src="6.js"></script>
-</body>
+    <!-- p5.js SKETCH SCRIPT -->
+    <script src="6.js"></script>
+  </body>
 </html>

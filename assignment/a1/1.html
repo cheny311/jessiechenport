@@ -2,35 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Assignemnt 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 1: Lost and Found</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../../style.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
-
+    
     <!-- p5.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
   </head>
   <body>
     <header class="hero">
-      <h1>Assignment 1:Lost and Found</h1>
-      <div id="sketch-container"></div>
+      <h1>Assignment 1: Lost and Found</h1>
       <nav>
-        <a href="/home.html">Back To Assignment List</a>
-        <a href="../about.html">About Me</a>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
       </nav>
     </header>
 
-    <main class="grid">
-      <!-- Project Description -->
-      <section class="card">
-        <h2></h2>
-        <p>Put your project reflection here.</p>
+    <main class="horizontal-layout">
+      <!-- 左侧：Project Description - 1/3屏幕 -->
+      <section class="description-card">
+        <h2>Project Description</h2>
+        <div class="scrollable-content">
+          <p>
+
+Jessie Chen Assignment 1 Lost and Found
+
+Partner: Ada Zhang
+
+Ada's description:
+A three-layer copper green fountain, always spraying water. it set above a smooth aqua basin in the park.
+
+When I imagine a fountain, I think of a cool summer day—breeze in the trees and warm sunlight. So I chose a light, youthful palette (mint, cyan, aqua, with soft pinks) to create a relaxed, refreshing mood through color and shape.
+
+I combined ellipses, rectangles, and curveVertex to build the stacked basins and water surfaces; rectangles connect the tiers, and ellipses + rectangles decorate the top.
+I adapted an online “radial gradient” idea and wrote a radialGradient(x, y, w, h, cInner, cOuter, steps) helper that stacks concentric ellipses to get a soft water look.
+
+I used beginShape with bezierVertex to simulate the water lifting slightly and then curving down; I adjusted scale and position to reach a satisfying composition.
+
+
+in the process of making the fountain, I noticed that in the beginning I was imagining moving elements and more presice shape for everything. but eventually, i learned how to change from the thing that I was trap in and turn them into some sort of design.
+I first imagined moving elements and very precise shapes. When some effects didn’t work as I hoped, I accepted the limitations and iterated from there.
+I’m not fully comfortable with curveVertex() and bezierVertex when encourter with lots of vertex they can feel confusing. I realized many repeated shapes could be refactored into functions, which would save time. 
+</p>
+        </div>
       </section>
 
-      <!-- p5 Sketch -->
-      <section class="card">
-        <h2></h2>
+      <!-- 右侧：p5 Sketch - 2/3屏幕 -->
+      <section class="sketch-card">
+        <h2>Interactive Fountain Sketch</h2>
         <div id="sketch-container"></div>
       </section>
     </main>
@@ -40,8 +66,6 @@
     </footer>
 
     <!-- p5.js SKETCH SCRIPT -->
-    <!-- <script src="1.js"> -->
-    <script src="1.js">
-    </script>
+    <script src="1.js"></script>
   </body>
 </html>

@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Assignment Title</title>
-  <link rel="stylesheet" href="../../style.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3: Experimental Clock</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barrio&family=Kirang+Haerang&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- p5.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-</head>
-<body>
+    <!-- p5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Assignment 3: Experimental Clock</h1>
+      <nav>
+        <a href="../../home.html">Back To Assignment List</a>
+        <a href="../../about.html">About Me</a>
+      </nav>
+    </header>
 
-  <header class="hero">
-    <h1>Assignment Title:Experimental Clock</h1>
-    <nav>
-        <a href="/home.html">Back To Assignment List</a>
-      <a href="../about.html">About Me</a>
-    </nav>
-  </header>
+    <main class="horizontal-layout">
+      <section class="description-card">
+        <h2>Project Description</h2>
+        <div class="scrollable-content">
+          <p>I translate the rhythm of the subway system into a clock that reflects my own feelings about catching the train. The speed of the train changes according to the current minute, while a round shape orbits to indicate the passing of seconds. The background also shifts depending on the hour of the day, which I divided into categories such as morning, afternoon, evening, and night—each with its own color atmosphere. When the train changes speed, playful text appears on the screen as my expression toward the experience of waiting, rushing, or being on time.
 
-  <main class="grid">
+Originally, I imagined the train coming directly toward the viewer, almost like a first-person perspective of standing on the platform. I wanted the cars to scale larger as they approached, but I couldn’t get the perspective and motion to work in the way I pictured. Because of this challenge, I shifted the design so that the train moves horizontally across the screen. This choice ended up working better, since it created a continuous rhythm and made it easier to pair the train’s speed with playful text and color changes.</p>
+         
+        </div>
+      </section>
 
-    <!-- Project Description -->
-    <section class="card">
-      <h2>Project Description</h2>
-      <p>
-       Put your project reflection here. 
-      </p>
-    </section>
+      <section class="sketch-card">
+        <h2>This is where your sketch will go.</h2>
+        <div id="sketch-container"></div>
+      </section>
+    </main>
 
-    <!-- p5 Sketch -->
-    <section class="card">
-      <h2>This is where your sketch will go.</h2>
-      <div id="sketch-container"></div>
-    </section>
+    <footer>
+      <p>© 2025 My Portfolio</p>
+    </footer>
 
-  </main>
-
-  <footer>
-    <p>© 2025 My Portfolio</p>
-  </footer>
-
-
-  <!-- p5.js SKETCH SCRIPT -->
-   <script src="3.js">
- 
-  </script>
-
-</body>
+    <!-- p5.js SKETCH SCRIPT -->
+    <script src="3.js"></script>
+  </body>
 </html>

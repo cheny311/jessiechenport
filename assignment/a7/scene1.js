@@ -4,8 +4,12 @@ class LeftBubble {
     this.frames = leftFrames;
     this.idx = 0;
   }
-  show() { this.visible = true; }
-  hide() { this.visible = false; }
+  show() {
+    this.visible = true;
+  }
+  hide() {
+    this.visible = false;
+  }
 
   nextFrame() {
     if (!this.frames || this.frames.length === 0) return;
@@ -19,16 +23,21 @@ class LeftBubble {
     translate(offsetX, offsetY);
     scale(scaleFactor);
 
-    noFill(); stroke(0); strokeWeight(2);
+    noFill();
+    stroke(0);
+    strokeWeight(2);
     rect(60, 100, 32, 32, 5);
     if (this.frames && this.frames.length > 0) {
       image(this.frames[this.idx], 62, 102, 28, 28);
     }
 
-    noFill(); stroke(0); strokeWeight(2);
+    noFill();
+    stroke(0);
+    strokeWeight(2);
     rect(100, 100, 180, 32, 5);
 
-    fill(0); noStroke();
+    fill(0);
+    noStroke();
     textSize(16);
     textAlign(LEFT, CENTER);
     text("how r u?", 110, 115);
@@ -41,8 +50,12 @@ class RightBubble {
   constructor() {
     this.visible = true;
   }
-  show() { this.visible = true; }
-  hide() { this.visible = false; }
+  show() {
+    this.visible = true;
+  }
+  hide() {
+    this.visible = false;
+  }
 
   display(scaleFactor = 1, offsetX = 0, offsetY = 0) {
     if (!this.visible) return;
@@ -51,10 +64,14 @@ class RightBubble {
     translate(offsetX, offsetY);
     scale(scaleFactor);
 
-    noFill(); stroke(0); strokeWeight(2);
+    noFill();
+    stroke(0);
+    strokeWeight(2);
     rect(280, 160, 210, 32, 5);
 
-    noFill(); stroke(0); strokeWeight(2);
+    noFill();
+    stroke(0);
+    strokeWeight(2);
     rect(500, 160, 32, 32, 5);
     if (pipImg) image(pipImg, 502, 162, 28, 28);
 
@@ -63,9 +80,15 @@ class RightBubble {
 }
 
 class BlurLayer {
-  constructor() { this.visible = false; }
-  show() { this.visible = true; }
-  hide() { this.visible = false; }
+  constructor() {
+    this.visible = false;
+  }
+  show() {
+    this.visible = true;
+  }
+  hide() {
+    this.visible = false;
+  }
 
   display() {
     if (!this.visible) return;
@@ -123,7 +146,7 @@ class Scene1 {
         this.input.value("");
 
         // ✅ 还是 10%
-        this.message = (random(1) < 0.10) ? "We can go out!" : "Unmatched";
+        this.message = random(1) < 0.1 ? "We can go out!" : "Unmatched";
 
         if (this.message === "Unmatched") {
           this.blurLayer.show();
@@ -169,7 +192,9 @@ class Scene1 {
   }
 
   update() {}
-  draw() { this.display(); }
+  draw() {
+    this.display();
+  }
 
   getLayoutTransform() {
     let s = min(width / this.REF_W, height / this.REF_H);
@@ -238,7 +263,17 @@ class Scene1 {
     // cursor
     noCursor();
     if (cursorImg) {
-      image(cursorImg, mouseX, mouseY - 70, 100, 100);
+      push();
+      translate(mouseX, mouseY - 70);
+
+      // ✅ 先判断是否翻转
+      if (mouseX < width / 3) {
+        scale(-1, 1);
+      }
+
+      // ✅ 然后绘制图片（坐标改为 0, 0）
+      image(cursorImg, 0, 0, 100, 100);
+      pop();
     }
 
     if (!this.hasBeenActivated) {
@@ -248,7 +283,7 @@ class Scene1 {
     }
 
     if (this.message) {
-      let msgY = (this.message === "Unmatched") ? height / 2 + 50 : height / 2;
+      let msgY = this.message === "Unmatched" ? height / 2 + 50 : height / 2;
 
       push();
       fill(0);
