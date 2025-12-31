@@ -38,7 +38,15 @@ body {
   letter-spacing: 2px;
 }
 
-nav a {
+.primary-nav {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-nav a {
   font-family: "Barrio", system-ui;
   color: white;
   margin: 0 10px;
@@ -46,8 +54,61 @@ nav a {
   font-weight: bold;
 }
 
-nav a:hover {
+.primary-nav a:hover {
   text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  font-family: "Barrio", system-ui;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 40px;
+  padding: 6px 18px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+  background: rgba(255, 255, 255, 0.35);
+  outline: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 8px 0;
+  min-width: 180px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  font-family: "Tomorrow", sans-serif;
+  color: #308fe0;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(52, 152, 219, 0.15);
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: flex;
 }
 
 /* ------------------------------
